@@ -1,0 +1,43 @@
+*required:
+python (download+install with pip)
+open cmd and start:
+pip install virtualenv 
+
+XAMPP control panel (download)
+MYSQL client (download)
+
+
+*run the project for the first time:
+*BACKEND:
+
+open cmd in this dir:
+virtualenv venv
+venv\scripts\activate
+pip install -r requirements.txt
+cd Arcanic_Ignition
+py manage.py createsuperuser
+py manage.py runserver
+
+*copy paste in browser:
+http://127.0.0.1:8000/customer_message_form/
+
+
+*run the project a second time:
+*BACKEND:
+
+open cmd in this dir:
+venv\scripts\activate
+cd Arcanic_Ignition
+py manage.py runserver
+
+*copy paste in browser:
+http://127.0.0.1:8000/customer_message_form/
+
+
+*open DATABASE display
+
+open XAMPP control panel 
+start Apache and MySQL in XAMPP
+
+*copy paste in browser:
+http://localhost/phpmyadmin

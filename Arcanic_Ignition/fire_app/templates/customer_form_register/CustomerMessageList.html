@@ -1,0 +1,39 @@
+    {% extends "customer_form_register/base.html" %}
+
+
+    {% block content %}
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <td>text</td>
+                <td>contact</td>
+                <td>subject</td>
+                <td>
+                    <a href="{% url 'form_insert' %}" class="btn btn-outline-success">
+                        <i class="fas fa-plus"></i> add new
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for CustomerMessage in CustomerMessageList %}
+                <tr>
+                    <td>{{CustomerMessage.text}}</td>
+                    <td>{{CustomerMessage.contact}}</td>
+                    <td>{{CustomerMessage.position}}</td>
+                    <td>
+                        <a href="{% url 'form_update' CustomerMessage.id %}" class="btn text-secondary px-0">
+                            <i class="far fa-edit fa-lg"></i>
+                        </a>
+                        <form action="{% url 'form_delete' CustomerMessage.id %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn">
+                                <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %}
